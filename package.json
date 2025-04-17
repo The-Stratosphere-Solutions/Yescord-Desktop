@@ -1,20 +1,78 @@
 {
-  "name": "yescord-desktop",
+  "name": "Yescord",
   "version": "1.0.0",
-  "description": "Yescord desktop client",
-  "main": "main.js",
+  "description": "Desktop app for makaronyevich's yescord",
+  "main": "src/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win --x64 --arm64",
+    "build:mac": "electron-builder --mac --x64 --arm64",
+    "build:linux": "electron-builder --linux --x64 --arm64",
+    "build:all": "npm run build:win && npm run build:mac && npm run build:linux"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Yescord",
-    "desktop",
-    "client"
-  ],
-  "author": "GitHub",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Forbirdden/Yescord-Desktop"
+  },
+  "author": "Forbirdden <@forbirdden.>",
+  "dependencies": {
+    "electron-store": "^8.1.0",
+    "node-fetch": "^2.6.7"
+  },
   "devDependencies": {
-    "electron": "^35.0.2"
+    "electron": "^25.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "asar": false,
+    "appId": "com.forbirdden.yescord",
+    "productName": "Yescord",
+    "copyright": "Copyright © 2025 Forbirdden",
+    "publish": {
+      "provider": "github",
+      "releaseType": "release"
+    },
+    "win": {
+      "icon": "logo.png",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64", "arm64"]
+        }
+      ]
+    },
+    "mac": {
+      "icon": "logo.png",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        }
+      ],
+      "category": "public.app-category.developer-tools"
+    },
+    "linux": {
+      "icon": "logo.png",
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64", "arm64"]
+        },
+        {
+          "target": "deb",
+          "arch": ["x64", "arm64"]
+        },
+        {
+          "target": "rpm",
+          "arch": ["x64", "arm64"]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   }
 }
