@@ -4,6 +4,6 @@
 
 <h4>Simple desktop client for Yescord</h4>
 
-[Yescord official repository](https://github.com/locomiadev/yescord)
+[Yescord official repository](https://github.com/locomiadev/yescord) | [Yescord official server](http://torw.ct.ws/yesc)
 
 ![image](https://github.com/user-attachments/assets/a871de78-4bee-47fd-a4de-62617207f1af)
